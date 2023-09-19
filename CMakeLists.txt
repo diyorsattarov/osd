@@ -1,23 +1,26 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(cpp-cmake-template)
+set(PROJECT_NAME cpp-cmake-template)
+
+project(${PROJECT_NAME})
 
 set(SOURCES
     src/bar/bar.cpp
     src/foo/foo.cpp
 )
 
-#add_executable(cpp-cmake-template ${SOURCES})
+add_executable(${PROJECT_NAME} ${SOURCES})
 
-#target_include_directories(cpp-cmake-template PRIVATE src include)
+target_include_directories(${PROJECT_NAME} PRIVATE src include)
 
 add_executable(tests
+    ${SOURCES}
     tests/bar/test_bar.cpp
     tests/foo/test_foo.cpp
 )
 
 find_package(GTest REQUIRED)
-target_include_directories(tests PRIVATE ${GTEST_INCLUDE_DIRS} src include)
+target_include_directories(tests PRIVATE ${GTEST_INCLUDE_DIRS})
 
 target_link_libraries(tests PRIVATE ${GTEST_BOTH_LIBRARIES} pthread)
 

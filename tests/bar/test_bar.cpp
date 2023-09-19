@@ -6,29 +6,29 @@ TEST(TestTestTest, TestTestTest) {
     ASSERT_EQ(1,1);
 }
 
-// class BarTest : public ::testing::Test {
-// protected:
-//     Bar bar;
+class BarTest : public ::testing::Test {
+protected:
+    Bar bar;
 
-//     void SetUp() override {
-//         bar = Bar(1);
-//     }
+    void SetUp() override {
+        bar = Bar(1);
+    }
 
-//     std::string captureStdout() {
-//         testing::internal::CaptureStdout();
-//         bar.doSomething();
-//         std::string output = testing::internal::GetCapturedStdout();
-//         return output;
-//     }
-// };
+    std::string captureStdout() {
+        testing::internal::CaptureStdout();
+        bar.doSomething();
+        std::string output = testing::internal::GetCapturedStdout();
+        return output;
+    }
+};
 
-// TEST_F(BarTest, TestBar) {
-// 	ASSERT_EQ(bar.getValue(), 1);
-// 	bar.setValue(2);
-// 	ASSERT_EQ(bar.getValue(), 2);
+TEST_F(BarTest, TestBar) {
+	ASSERT_EQ(bar.getValue(), 1);
+	bar.setValue(2);
+	ASSERT_EQ(bar.getValue(), 2);
 
-//     std::string output = captureStdout();
+    std::string output = captureStdout();
 
-//     std::string expectedOutput = "Bar is doing something!\n";
-//     EXPECT_EQ(output, expectedOutput);
-// }
+    std::string expectedOutput = "Bar is doing something!\n";
+    EXPECT_EQ(output, expectedOutput);
+}

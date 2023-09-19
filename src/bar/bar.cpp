@@ -3,13 +3,9 @@
 
 Bar::Bar() {}
 
-Bar::Bar(int value) : value_(value) {
-    std::cout << "Bar object created with value: " << value_ << std::endl;
-}
+Bar::Bar(int value) : value_(value) {}
 
-Bar::~Bar() {
-    std::cout << "Bar object destroyed" << std::endl;
-}
+Bar::~Bar() {}
 
 int Bar::getValue() const {
     return value_;
