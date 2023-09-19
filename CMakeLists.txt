@@ -4,20 +4,20 @@ project(cpp-cmake-template)
 
 set(SOURCES
     src/bar/bar.cpp
+    src/foo/foo.cpp
 )
 
-add_executable(cpp-cmake-template ${SOURCES})
+#add_executable(cpp-cmake-template ${SOURCES})
 
-target_include_directories(cpp-cmake-template PRIVATE src include)
+#target_include_directories(cpp-cmake-template PRIVATE src include)
 
 add_executable(tests
     tests/bar/test_bar.cpp
+    tests/foo/test_foo.cpp
 )
 
-install(DIRECTORY include/ DESTINATION include)
-
 find_package(GTest REQUIRED)
-target_include_directories(tests PRIVATE ${GTEST_INCLUDE_DIRS})
+target_include_directories(tests PRIVATE ${GTEST_INCLUDE_DIRS} src include)
 
 target_link_libraries(tests PRIVATE ${GTEST_BOTH_LIBRARIES} pthread)
 
