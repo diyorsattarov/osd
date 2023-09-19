@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10)
 project(cpp-cmake-template)
 
 set(SOURCES
-    tests/test/test_main.cpp
+    src/bar/bar.cpp
 )
 
 add_executable(cpp-cmake-template ${SOURCES})
@@ -11,8 +11,7 @@ add_executable(cpp-cmake-template ${SOURCES})
 target_include_directories(cpp-cmake-template PRIVATE src include)
 
 add_executable(tests
-    tests/test/test_main.cpp
-    src/bar/bar.cpp
+    tests/bar/test_bar.cpp
 )
 
 install(DIRECTORY include/ DESTINATION include)
