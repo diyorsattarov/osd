@@ -1,15 +1,25 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.10)
 
-project(cpp-cmake-template VERSION 0.01)
+project(cpp-cmake-template)
 
-add_subdirectory(test)
-
-add_custom_target(clean_all
-    COMMAND ${CMAKE_COMMAND} -E remove_directory ${CMAKE_BINARY_DIR}/CMakeFiles
-    COMMAND ${CMAKE_COMMAND} -E remove ${CMAKE_BINARY_DIR}/CMakeCache.txt
-    COMMAND ${CMAKE_COMMAND} -E remove ${CMAKE_BINARY_DIR}/Makefile
-    COMMAND ${CMAKE_COMMAND} -E remove ${CMAKE_BINARY_DIR}/cmake_install.cmake
-    COMMENT "Cleaning build files in root directory"
+set(SOURCES
+    tests/test/test_main.cpp
 )
 
-add_dependencies(clean_all clean_test)  # Add this line to ensure clean_test is executed before clean_root
+add_executable(cpp-cmake-template ${SOURCES})
+
+target_include_directories(cpp-cmake-template PRIVATE src include)
+
+add_executable(tests
+    tests/test/test_main.cpp
+    src/bar/bar.cpp
+)
+
+install(DIRECTORY include/ DESTINATION include)
+
+find_package(GTest REQUIRED)
+target_include_directories(tests PRIVATE ${GTEST_INCLUDE_DIRS})
+
+target_link_libraries(tests PRIVATE ${GTEST_BOTH_LIBRARIES} pthread)
+
+add_custom_target(run_tests COMMAND tests)
