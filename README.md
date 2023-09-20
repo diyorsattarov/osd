@@ -22,19 +22,37 @@ A brief introduction to your project. Explain what your project does and why it'
 
 ## Getting Started
 
-Instructions on how to get a copy of your project up and running on a local machine.
+```
+git clone https://github.com/diyooor/cpp-cmake-template.git
+```
 
 ### Prerequisites
 
-List any software, libraries, or dependencies that users need to have before they can use your project.
+1. CMake
+1. GoogleTest
+
 
 ### Installation
 
-Step-by-step instructions on how to install your project.
+```
+mkdir build && cd build
+```
+
+```
+cmake .. 
+```
 
 ## Usage
 
-How to use your project once it's installed. Provide code examples or usage scenarios.
+For Linux users
+```
+make tests
+```
+
+For Windows users:
+```
+ninja tests
+```
 
 ## Features
 
