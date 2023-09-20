@@ -1,6 +1,6 @@
-# Project Name
+# osdev
 
-Short description of your project.
+This project's purpose is to practice and refine principles of os development and computer architecture. 
 
 ## Table of Contents
 
@@ -23,7 +23,7 @@ A brief introduction to your project. Explain what your project does and why it'
 ## Getting Started
 
 ```
-git clone https://github.com/diyooor/cpp-cmake-template.git
+git clone https://github.com/diyooor/osdev
 ```
 
 ### Prerequisites
