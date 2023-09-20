@@ -9,9 +9,12 @@ set(SOURCES
     src/foo/foo.cpp
 )
 
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME} 
+    ${SOURCES}
+    examples/bar/example_bar.cpp
+)
 
-target_include_directories(${PROJECT_NAME} PRIVATE src include)
+target_include_directories(${PROJECT_NAME} PRIVATE src include examples)
 
 add_executable(tests
     ${SOURCES}
